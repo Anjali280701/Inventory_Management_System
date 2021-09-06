@@ -14,3 +14,5 @@ You'll learn JSON, NoSQL databases, File Handling.
 My name is Anjali Jadhav. I am Student at Government College of Engineering, Aurangabad and pursuing B.Tech in Computer Science Engineering. I am doing virtual Internship at Elite Technology Groups (Python for ML/AI).
 
 ## Other Links
+Linkedin : 
+https://www.linkedin.com/in/anjali-jadhav-502bba216
