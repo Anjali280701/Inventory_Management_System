@@ -1,0 +1,605 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "name": "Adding_new_Products.ipynb",
+      "provenance": [],
+      "collapsed_sections": []
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "6MGiIwEuHqjG"
+      },
+      "source": [
+        "### Read Data from JSON"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "StwT6fjxI3-k"
+      },
+      "source": [
+        "import json"
+      ],
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "pWJv6CBSIzco"
+      },
+      "source": [
+        "# import File \" record.json ( D\\Anjali - Resume_files ) \"\n",
+        "\n",
+        "file = open (\"record.json\",'r')\n",
+        "r = file.read()\n",
+        "file.close()\n",
+        "\n",
+        "record = json.loads(r)"
+      ],
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "oJ5hTsvoI4Iv",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "outputId": "95b686e0-5e90-4f20-ff9a-7a805d611049"
+      },
+      "source": [
+        "record"
+      ],
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "{'T19001': {'car_name': 'Rolls-Royce',\n",
+              "  'color': 'White',\n",
+              "  'price': 100000000,\n",
+              "  'quantity': 4},\n",
+              " 'T19003': {'car_name': 'Venue',\n",
+              "  'color': 'Silver',\n",
+              "  'price': 150000000,\n",
+              "  'quantity': 10},\n",
+              " 'T19004': {'car_name': 'Mahindra Thar',\n",
+              "  'color': 'Pink',\n",
+              "  'price': 1300000,\n",
+              "  'quantity': 65},\n",
+              " 'T19005': {'car_name': 'BMW',\n",
+              "  'color': 'Blue',\n",
+              "  'price': 5000000,\n",
+              "  'quantity': 100},\n",
+              " 'T19006': {'car_name': 'Creta',\n",
+              "  'color': 'Golden',\n",
+              "  'price': 1200000,\n",
+              "  'quantity': 25},\n",
+              " 'T19007': {'car_name': 'Audi',\n",
+              "  'color': 'Yellow',\n",
+              "  'price': 3600000,\n",
+              "  'quantity': 78},\n",
+              " 'T19008': {'car_name': 'Ferrari',\n",
+              "  'color': 'Red',\n",
+              "  'price': 40000000,\n",
+              "  'quantity': 100},\n",
+              " 'T19009': {'car_name': 'Jaguar',\n",
+              "  'color': 'Gray',\n",
+              "  'price': 4700000,\n",
+              "  'quantity': 32},\n",
+              " 'T19010': {'car_name': 'Vitara-Brezza',\n",
+              "  'color': 'White',\n",
+              "  'price': 800000,\n",
+              "  'quantity': 49},\n",
+              " 'T19011': {'car_name': 'Skoda',\n",
+              "  'color': 'Black',\n",
+              "  'price': 1000000,\n",
+              "  'quantity': 10},\n",
+              " 'T19012': {'car_name': 'Sonet',\n",
+              "  'color': 'Silver',\n",
+              "  'price': 700000,\n",
+              "  'quantity': 75},\n",
+              " 'T19013': {'car_name': 'Altroz',\n",
+              "  'color': 'Pink',\n",
+              "  'price': 600000,\n",
+              "  'quantity': 87},\n",
+              " 'T19014': {'car_name': 'Ford',\n",
+              "  'color': 'Blue',\n",
+              "  'price': 3500000,\n",
+              "  'quantity': 23},\n",
+              " 'T19015': {'car_name': 'Fortuner',\n",
+              "  'color': 'Golden',\n",
+              "  'price': 3100000,\n",
+              "  'quantity': 19},\n",
+              " 'T19016': {'car_name': 'Volkswagen-Polo',\n",
+              "  'color': 'Yellow',\n",
+              "  'price': 900000,\n",
+              "  'quantity': 93},\n",
+              " 'T19017': {'car_name': 'Bleno Zeta',\n",
+              "  'color': 'Red',\n",
+              "  'price': 750000,\n",
+              "  'quantity': 67},\n",
+              " 'T19018': {'car_name': 'Tesla',\n",
+              "  'color': 'Gray',\n",
+              "  'price': 5000000,\n",
+              "  'quantity': 54},\n",
+              " 'T19019': {'car_name': 'Kwid',\n",
+              "  'color': 'White',\n",
+              "  'price': 450000,\n",
+              "  'quantity': 15},\n",
+              " 'T19020': {'car_name': 'Fiat',\n",
+              "  'color': 'Black',\n",
+              "  'price': 850000,\n",
+              "  'quantity': 36},\n",
+              " 'T19021': {'car_name': 'Infinity',\n",
+              "  'color': 'Silver',\n",
+              "  'price': 5500000,\n",
+              "  'quantity': 17},\n",
+              " 'T19022': {'car_name': 'Lexus',\n",
+              "  'color': 'Pink',\n",
+              "  'price': 5700000,\n",
+              "  'quantity': 81},\n",
+              " 'T19023': {'car_name': 'Mercedes-Benz',\n",
+              "  'color': 'Blue',\n",
+              "  'price': 4200000,\n",
+              "  'quantity': 27},\n",
+              " 'T19024': {'car_name': 'Porsche',\n",
+              "  'color': 'Golden',\n",
+              "  'price': 7000000,\n",
+              "  'quantity': 71},\n",
+              " 'T19025': {'car_name': 'Volvo',\n",
+              "  'color': 'Yellow',\n",
+              "  'price': 4300000,\n",
+              "  'quantity': 45},\n",
+              " 'T19026': {'car_name': 'Nissan',\n",
+              "  'color': 'Red',\n",
+              "  'price': 560000,\n",
+              "  'quantity': 24},\n",
+              " 'T19027': {'car_name': 'Bugatti',\n",
+              "  'color': 'Gray',\n",
+              "  'price': 120000000,\n",
+              "  'quantity': 8},\n",
+              " 'T19028': {'car_name': 'Chevrolet',\n",
+              "  'color': 'White',\n",
+              "  'price': 1400000,\n",
+              "  'quantity': 26},\n",
+              " 'T19029': {'car_name': 'Jeep',\n",
+              "  'color': 'Black',\n",
+              "  'price': 1700000,\n",
+              "  'quantity': 51},\n",
+              " 'T19030': {'car_name': 'Swift',\n",
+              "  'color': 'Silver',\n",
+              "  'price': 650000,\n",
+              "  'quantity': 40}}"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 20
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "ZKm-JpOqI4Ko"
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "A8jS4M52I4ND"
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "cIvIDTXeN3gt"
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "Qxld2ihZI0Dj"
+      },
+      "source": [
+        "### Add New Item into Inventory"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "htTms2RHI2TV",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "outputId": "efb9d5ec-5fcf-4a50-9eb2-37446ba77626"
+      },
+      "source": [
+        "product_id = str(input(\"Enter Product Id. : \"))\n",
+        "car_name   = str(input(\"Enter Car Name : \"))\n",
+        "color      = str(input(\"Enter Color of Car : \"))\n",
+        "price      = int(input(\"Enter Price of a Car : \"))\n",
+        "quantity   = int(input(\"Enter Quantity : \"))\n",
+        "\n",
+        "record[product_id] = {'car_name' : car_name, 'color' : color, 'price' : price, 'quantity' : quantity }\n",
+        "\n",
+        "js = json.dumps(record)\n",
+        "\n",
+        "file = open(\"record.json\",'w')\n",
+        "file.write(js)\n",
+        "file.close()"
+      ],
+      "execution_count": null,
+      "outputs": [
+        {
+          "name": "stdout",
+          "output_type": "stream",
+          "text": [
+            "Enter Product Id. : T19031\n",
+            "Enter Car Name : ALTO 800\n",
+            "Enter Color of Car : White\n",
+            "Enter Price of a Car : 400000\n",
+            "Enter Quantity : 82\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "JSTNj_gaI4_R",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "outputId": "e28c3539-d8bc-457f-c635-b097c5566456"
+      },
+      "source": [
+        "record"
+      ],
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "{'T19001': {'car_name': 'Rolls-Royce',\n",
+              "  'color': 'White',\n",
+              "  'price': 100000000,\n",
+              "  'quantity': 4},\n",
+              " 'T19003': {'car_name': 'Venue',\n",
+              "  'color': 'Silver',\n",
+              "  'price': 150000000,\n",
+              "  'quantity': 10},\n",
+              " 'T19004': {'car_name': 'Mahindra Thar',\n",
+              "  'color': 'Pink',\n",
+              "  'price': 1300000,\n",
+              "  'quantity': 65},\n",
+              " 'T19005': {'car_name': 'BMW',\n",
+              "  'color': 'Blue',\n",
+              "  'price': 5000000,\n",
+              "  'quantity': 100},\n",
+              " 'T19006': {'car_name': 'Creta',\n",
+              "  'color': 'Golden',\n",
+              "  'price': 1200000,\n",
+              "  'quantity': 25},\n",
+              " 'T19007': {'car_name': 'Audi',\n",
+              "  'color': 'Yellow',\n",
+              "  'price': 3600000,\n",
+              "  'quantity': 78},\n",
+              " 'T19008': {'car_name': 'Ferrari',\n",
+              "  'color': 'Red',\n",
+              "  'price': 40000000,\n",
+              "  'quantity': 100},\n",
+              " 'T19009': {'car_name': 'Jaguar',\n",
+              "  'color': 'Gray',\n",
+              "  'price': 4700000,\n",
+              "  'quantity': 32},\n",
+              " 'T19010': {'car_name': 'Vitara-Brezza',\n",
+              "  'color': 'White',\n",
+              "  'price': 800000,\n",
+              "  'quantity': 49},\n",
+              " 'T19011': {'car_name': 'Skoda',\n",
+              "  'color': 'Black',\n",
+              "  'price': 1000000,\n",
+              "  'quantity': 10},\n",
+              " 'T19012': {'car_name': 'Sonet',\n",
+              "  'color': 'Silver',\n",
+              "  'price': 700000,\n",
+              "  'quantity': 75},\n",
+              " 'T19013': {'car_name': 'Altroz',\n",
+              "  'color': 'Pink',\n",
+              "  'price': 600000,\n",
+              "  'quantity': 87},\n",
+              " 'T19014': {'car_name': 'Ford',\n",
+              "  'color': 'Blue',\n",
+              "  'price': 3500000,\n",
+              "  'quantity': 23},\n",
+              " 'T19015': {'car_name': 'Fortuner',\n",
+              "  'color': 'Golden',\n",
+              "  'price': 3100000,\n",
+              "  'quantity': 19},\n",
+              " 'T19016': {'car_name': 'Volkswagen-Polo',\n",
+              "  'color': 'Yellow',\n",
+              "  'price': 900000,\n",
+              "  'quantity': 93},\n",
+              " 'T19017': {'car_name': 'Bleno Zeta',\n",
+              "  'color': 'Red',\n",
+              "  'price': 750000,\n",
+              "  'quantity': 67},\n",
+              " 'T19018': {'car_name': 'Tesla',\n",
+              "  'color': 'Gray',\n",
+              "  'price': 5000000,\n",
+              "  'quantity': 54},\n",
+              " 'T19019': {'car_name': 'Kwid',\n",
+              "  'color': 'White',\n",
+              "  'price': 450000,\n",
+              "  'quantity': 15},\n",
+              " 'T19020': {'car_name': 'Fiat',\n",
+              "  'color': 'Black',\n",
+              "  'price': 850000,\n",
+              "  'quantity': 36},\n",
+              " 'T19021': {'car_name': 'Infinity',\n",
+              "  'color': 'Silver',\n",
+              "  'price': 5500000,\n",
+              "  'quantity': 17},\n",
+              " 'T19022': {'car_name': 'Lexus',\n",
+              "  'color': 'Pink',\n",
+              "  'price': 5700000,\n",
+              "  'quantity': 81},\n",
+              " 'T19023': {'car_name': 'Mercedes-Benz',\n",
+              "  'color': 'Blue',\n",
+              "  'price': 4200000,\n",
+              "  'quantity': 27},\n",
+              " 'T19024': {'car_name': 'Porsche',\n",
+              "  'color': 'Golden',\n",
+              "  'price': 7000000,\n",
+              "  'quantity': 71},\n",
+              " 'T19025': {'car_name': 'Volvo',\n",
+              "  'color': 'Yellow',\n",
+              "  'price': 4300000,\n",
+              "  'quantity': 45},\n",
+              " 'T19026': {'car_name': 'Nissan',\n",
+              "  'color': 'Red',\n",
+              "  'price': 560000,\n",
+              "  'quantity': 24},\n",
+              " 'T19027': {'car_name': 'Bugatti',\n",
+              "  'color': 'Gray',\n",
+              "  'price': 120000000,\n",
+              "  'quantity': 8},\n",
+              " 'T19028': {'car_name': 'Chevrolet',\n",
+              "  'color': 'White',\n",
+              "  'price': 1400000,\n",
+              "  'quantity': 26},\n",
+              " 'T19029': {'car_name': 'Jeep',\n",
+              "  'color': 'Black',\n",
+              "  'price': 1700000,\n",
+              "  'quantity': 51},\n",
+              " 'T19030': {'car_name': 'Swift',\n",
+              "  'color': 'Silver',\n",
+              "  'price': 650000,\n",
+              "  'quantity': 40},\n",
+              " 'T19031': {'car_name': 'ALTO 800',\n",
+              "  'color': 'White',\n",
+              "  'price': 400000,\n",
+              "  'quantity': 82}}"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 24
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "6firOSjZI5D4"
+      },
+      "source": [
+        "del record ['T19019']"
+      ],
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "iyLP5y1MI5Gd",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "outputId": "3310b417-4bbd-4657-e551-6e56c62e6406"
+      },
+      "source": [
+        "record"
+      ],
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "{'T19001': {'car_name': 'Rolls-Royce',\n",
+              "  'color': 'White',\n",
+              "  'price': 100000000,\n",
+              "  'quantity': 4},\n",
+              " 'T19003': {'car_name': 'Venue',\n",
+              "  'color': 'Silver',\n",
+              "  'price': 150000000,\n",
+              "  'quantity': 10},\n",
+              " 'T19004': {'car_name': 'Mahindra Thar',\n",
+              "  'color': 'Pink',\n",
+              "  'price': 1300000,\n",
+              "  'quantity': 65},\n",
+              " 'T19005': {'car_name': 'BMW',\n",
+              "  'color': 'Blue',\n",
+              "  'price': 5000000,\n",
+              "  'quantity': 100},\n",
+              " 'T19006': {'car_name': 'Creta',\n",
+              "  'color': 'Golden',\n",
+              "  'price': 1200000,\n",
+              "  'quantity': 25},\n",
+              " 'T19007': {'car_name': 'Audi',\n",
+              "  'color': 'Yellow',\n",
+              "  'price': 3600000,\n",
+              "  'quantity': 78},\n",
+              " 'T19008': {'car_name': 'Ferrari',\n",
+              "  'color': 'Red',\n",
+              "  'price': 40000000,\n",
+              "  'quantity': 100},\n",
+              " 'T19009': {'car_name': 'Jaguar',\n",
+              "  'color': 'Gray',\n",
+              "  'price': 4700000,\n",
+              "  'quantity': 32},\n",
+              " 'T19010': {'car_name': 'Vitara-Brezza',\n",
+              "  'color': 'White',\n",
+              "  'price': 800000,\n",
+              "  'quantity': 49},\n",
+              " 'T19011': {'car_name': 'Skoda',\n",
+              "  'color': 'Black',\n",
+              "  'price': 1000000,\n",
+              "  'quantity': 10},\n",
+              " 'T19012': {'car_name': 'Sonet',\n",
+              "  'color': 'Silver',\n",
+              "  'price': 700000,\n",
+              "  'quantity': 75},\n",
+              " 'T19013': {'car_name': 'Altroz',\n",
+              "  'color': 'Pink',\n",
+              "  'price': 600000,\n",
+              "  'quantity': 87},\n",
+              " 'T19014': {'car_name': 'Ford',\n",
+              "  'color': 'Blue',\n",
+              "  'price': 3500000,\n",
+              "  'quantity': 23},\n",
+              " 'T19015': {'car_name': 'Fortuner',\n",
+              "  'color': 'Golden',\n",
+              "  'price': 3100000,\n",
+              "  'quantity': 19},\n",
+              " 'T19016': {'car_name': 'Volkswagen-Polo',\n",
+              "  'color': 'Yellow',\n",
+              "  'price': 900000,\n",
+              "  'quantity': 93},\n",
+              " 'T19017': {'car_name': 'Bleno Zeta',\n",
+              "  'color': 'Red',\n",
+              "  'price': 750000,\n",
+              "  'quantity': 67},\n",
+              " 'T19018': {'car_name': 'Tesla',\n",
+              "  'color': 'Gray',\n",
+              "  'price': 5000000,\n",
+              "  'quantity': 54},\n",
+              " 'T19020': {'car_name': 'Fiat',\n",
+              "  'color': 'Black',\n",
+              "  'price': 850000,\n",
+              "  'quantity': 36},\n",
+              " 'T19021': {'car_name': 'Infinity',\n",
+              "  'color': 'Silver',\n",
+              "  'price': 5500000,\n",
+              "  'quantity': 17},\n",
+              " 'T19022': {'car_name': 'Lexus',\n",
+              "  'color': 'Pink',\n",
+              "  'price': 5700000,\n",
+              "  'quantity': 81},\n",
+              " 'T19023': {'car_name': 'Mercedes-Benz',\n",
+              "  'color': 'Blue',\n",
+              "  'price': 4200000,\n",
+              "  'quantity': 27},\n",
+              " 'T19024': {'car_name': 'Porsche',\n",
+              "  'color': 'Golden',\n",
+              "  'price': 7000000,\n",
+              "  'quantity': 71},\n",
+              " 'T19025': {'car_name': 'Volvo',\n",
+              "  'color': 'Yellow',\n",
+              "  'price': 4300000,\n",
+              "  'quantity': 45},\n",
+              " 'T19026': {'car_name': 'Nissan',\n",
+              "  'color': 'Red',\n",
+              "  'price': 560000,\n",
+              "  'quantity': 24},\n",
+              " 'T19027': {'car_name': 'Bugatti',\n",
+              "  'color': 'Gray',\n",
+              "  'price': 120000000,\n",
+              "  'quantity': 8},\n",
+              " 'T19028': {'car_name': 'Chevrolet',\n",
+              "  'color': 'White',\n",
+              "  'price': 1400000,\n",
+              "  'quantity': 26},\n",
+              " 'T19029': {'car_name': 'Jeep',\n",
+              "  'color': 'Black',\n",
+              "  'price': 1700000,\n",
+              "  'quantity': 51},\n",
+              " 'T19030': {'car_name': 'Swift',\n",
+              "  'color': 'Silver',\n",
+              "  'price': 650000,\n",
+              "  'quantity': 40}}"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 27
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "PrPWl1VvI5Ij"
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "boih_to2I5Ka"
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "WV03jH73I5N-"
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": null,
+      "outputs": []
+    }
+  ]
+}
